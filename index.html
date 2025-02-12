@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Самой Особенной</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #5a3e36;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-in-out;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            transform: scaleX(-1);
+        }
+
+            img:hover {
+                transform: scale(1.05);
+                transform: scaleX(-1.05);
+            }
+
+        .music-button {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #e67e22;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4);
+        }
+
+            .music-button:hover {
+                background-color: #d35400;
+                transform: translateY(-3px);
+            }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #5a3e36;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+            .hearts span {
+                position: absolute;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background: #ff6b6b;
+                clip-path: polygon(50% 0%, 100% 38%, 150% 30%, 81% 100%, 50% 75%, 18% 100%, -50% 30%, 0% 38%);
+                animation: animateHearts 5s linear infinite;
+                bottom: -20px;
+            }
+
+                .hearts span:nth-child(1) {
+                    left: 10%;
+                    animation-delay: 0s;
+                }
+
+                .hearts span:nth-child(2) {
+                    left: 20%;
+                    animation-delay: 2s;
+                }
+
+                .hearts span:nth-child(3) {
+                    left: 30%;
+                    animation-delay: 4s;
+                }
+
+                .hearts span:nth-child(4) {
+                    left: 40%;
+                    animation-delay: 6s;
+                }
+
+                .hearts span:nth-child(5) {
+                    left: 50%;
+                    animation-delay: 8s;
+                }
+
+                .hearts span:nth-child(6) {
+                    left: 60%;
+                    animation-delay: 10s;
+                }
+
+                .hearts span:nth-child(7) {
+                    left: 70%;
+                    animation-delay: 12s;
+                }
+
+                .hearts span:nth-child(8) {
+                    left: 80%;
+                    animation-delay: 14s;
+                }
+
+                .hearts span:nth-child(9) {
+                    left: 90%;
+                    animation-delay: 16s;
+                }
+
+        @keyframes animateHearts {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="container">
+        <h1>Для Самой Особенной</h1>
+        <img src="valentine.png" alt="Фотография">
+        <button class="music-button" onclick="playMusic()">Включить музыку</button>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="Jim Croce - Time In A Bottle.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио элемент.
+    </audio>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("background-music");
+            if (audio.paused) {
+                audio.play();
+                document.querySelector('.music-button').textContent = 'Выключить музыку';
+            } else {
+                audio.pause();
+                document.querySelector('.music-button').textContent = 'Включить музыку';
+            }
+        }
+    </script>
+
+</body>
+</html>
